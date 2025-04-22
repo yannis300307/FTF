@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dct6k0f1smjnh"]
+
+[ext_resource type="Script" uid="uid://b4rxwrwbkv4ne" path="res://scenes/objects/reverse_item.gd" id="1_yep1a"]
+[ext_resource type="Texture2D" uid="uid://boxfpn47rxvyf" path="res://assets/textures/reverse_item.png" id="2_m1a6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrbxd"]
+size = Vector2(32, 80)
+
+[node name="reverse_item" type="Area2D"]
+script = ExtResource("1_yep1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m1a6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_vrbxd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

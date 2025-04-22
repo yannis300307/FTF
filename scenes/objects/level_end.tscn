@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnhx4va2w4wja"]
+
+[ext_resource type="Script" uid="uid://ck33c73mxe5tg" path="res://scenes/objects/level_end.gd" id="1_2hyyh"]
+[ext_resource type="Texture2D" uid="uid://dcsh4obkvsl5a" path="res://assets/textures/end.png" id="1_v06a4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmp1b"]
+radius = 64.0
+
+[node name="level_end" type="Area2D"]
+script = ExtResource("1_2hyyh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v06a4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lmp1b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
