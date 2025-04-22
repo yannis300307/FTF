@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://21pvjnr101np"
-path="res://.godot/imported/bounce.png-d30914d029a9c0eda42e395083b50d10.ctex"
+uid="uid://d1wu8encatjve"
+path="res://.godot/imported/single_pass_wall_empty.png-6264454c52e260d8da5ea605ee5eb5db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/bounce.png"
-dest_files=["res://.godot/imported/bounce.png-d30914d029a9c0eda42e395083b50d10.ctex"]
+source_file="res://assets/textures/single_pass_wall_empty.png"
+dest_files=["res://.godot/imported/single_pass_wall_empty.png-6264454c52e260d8da5ea605ee5eb5db.ctex"]
 
 [params]
 

@@ -1,4 +1,50 @@
-[gd_scene format=3 uid="uid://du8jfy75h56x"]
+[gd_scene load_steps=10 format=3 uid="uid://du8jfy75h56x"]
+
+[ext_resource type="Script" uid="uid://dofl1ovnimqs" path="res://scenes/ui.gd" id="1_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://8t7xd376gyxj" path="res://assets/textures/ui/single_dir_reverse_v.png" id="1_nt7q6"]
+[ext_resource type="Texture2D" uid="uid://b10kbehjyct0u" path="res://assets/textures/ui/retry.png" id="2_wm3ai"]
+[ext_resource type="Texture2D" uid="uid://bsw3y81gybmji" path="res://assets/textures/ui/single_dir_reverse_h.png" id="2_yev5y"]
+[ext_resource type="Texture2D" uid="uid://clogf2nevq32t" path="res://assets/textures/ui/single_dir_reverse_b.png" id="3_gdt2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dfyjw"]
+font_size = 30
+
+[sub_resource type="Animation" id="Animation_wm3ai"]
+resource_name = "transition"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(740, -1805), Vector2(-579, 391)]
+}
+
+[sub_resource type="Animation" id="Animation_8dubc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(740, -1805)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p7vwb"]
+_data = {
+&"RESET": SubResource("Animation_8dubc"),
+&"transition": SubResource("Animation_wm3ai")
+}
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -7,23 +53,116 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gdt2y")
 
-[node name="reverse_infos" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(200, 0)
+[node name="retry" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -98.0
-offset_right = 189.0
-offset_bottom = -40.0
+offset_left = -148.0
+offset_top = -146.25
+offset_right = -20.0
+offset_bottom = -18.25
+grow_horizontal = 0
 grow_vertical = 0
+texture_normal = ExtResource("2_wm3ai")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="reverse_amount" type="Label" parent="reverse_infos"]
-layout_mode = 2
-text = "Reverse amount : 0"
+[node name="reverse_btns" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = 144.0
+grow_vertical = 2
+alignment = 1
 
-[node name="Button" type="Button" parent="reverse_infos"]
+[node name="rv" type="MarginContainer" parent="reverse_btns"]
 layout_mode = 2
-text = "reverse"
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="reverse_v" type="TextureButton" parent="reverse_btns/rv"]
+custom_minimum_size = Vector2(128, 141.25)
+layout_mode = 2
+texture_normal = ExtResource("1_nt7q6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="reverse_amount" type="Label" parent="reverse_btns/rv/reverse_v"]
+layout_mode = 2
+offset_left = 74.0
+offset_top = 93.0
+offset_right = 129.0
+offset_bottom = 136.0
+text = "0"
+label_settings = SubResource("LabelSettings_dfyjw")
+horizontal_alignment = 1
+
+[node name="rh" type="MarginContainer" parent="reverse_btns"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="reverse_h" type="TextureButton" parent="reverse_btns/rh"]
+custom_minimum_size = Vector2(128, 141.25)
+layout_mode = 2
+texture_normal = ExtResource("2_yev5y")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="reverse_amount" type="Label" parent="reverse_btns/rh/reverse_h"]
+layout_mode = 2
+offset_left = 74.0
+offset_top = 93.0
+offset_right = 129.0
+offset_bottom = 136.0
+text = "0"
+label_settings = SubResource("LabelSettings_dfyjw")
+horizontal_alignment = 1
+
+[node name="rb" type="MarginContainer" parent="reverse_btns"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="reverse_b" type="TextureButton" parent="reverse_btns/rb"]
+custom_minimum_size = Vector2(128, 141.25)
+layout_mode = 2
+texture_normal = ExtResource("3_gdt2y")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="reverse_amount" type="Label" parent="reverse_btns/rb/reverse_b"]
+layout_mode = 2
+offset_left = 74.0
+offset_top = 93.0
+offset_right = 129.0
+offset_bottom = 136.0
+text = "0"
+label_settings = SubResource("LabelSettings_dfyjw")
+horizontal_alignment = 1
+
+[node name="transition" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 740.0
+offset_top = -1805.0
+offset_right = 2567.0
+offset_bottom = -529.0
+rotation = 0.506145
+color = Color(0, 0.203922, 0.254902, 1)
+
+[node name="transition_animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../transition")
+libraries = {
+&"": SubResource("AnimationLibrary_p7vwb")
+}
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="reverse_btns/rv/reverse_v" to="." method="_on_reverse_v_pressed"]
+[connection signal="pressed" from="reverse_btns/rh/reverse_h" to="." method="_on_reverse_h_pressed"]
+[connection signal="pressed" from="reverse_btns/rb/reverse_b" to="." method="_on_reverse_b_pressed"]

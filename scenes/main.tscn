@@ -1,27 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://swrf0wutqabg"]
+[gd_scene load_steps=7 format=3 uid="uid://swrf0wutqabg"]
 
-[ext_resource type="PackedScene" uid="uid://i3d061tgp1fv" path="res://level_1.tscn" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://i3d061tgp1fv" path="res://scenes/levels/level_1.tscn" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://lvpn727bbeys" path="res://scenes/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://du8jfy75h56x" path="res://scenes/ui.tscn" id="1_tefeu"]
-[ext_resource type="PackedScene" uid="uid://btw72qlqph884" path="res://level_2.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://btw72qlqph884" path="res://scenes/levels/level_2.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cadxm5at2ch24" path="res://scenes/levels/level_3.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://h111bw0d7aq4" path="res://scenes/objects/player.tscn" id="5_85g3d"]
-[ext_resource type="Script" uid="uid://dofl1ovnimqs" path="res://scenes/ui.gd" id="7_o6xl0"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" node_paths=PackedStringArray("levels")]
+script = ExtResource("1_tbgi4")
+levels = [NodePath("level1"), NodePath("level2"), NodePath("level3")]
 
 [node name="level1" parent="." instance=ExtResource("1_jyhfs")]
 
 [node name="level2" parent="." instance=ExtResource("2_tbgi4")]
 position = Vector2(3584, -2560)
 
+[node name="level3" parent="." instance=ExtResource("4_tefeu")]
+position = Vector2(-676, -4992)
+
 [node name="player" parent="." instance=ExtResource("5_85g3d")]
 unique_name_in_owner = true
 position = Vector2(-768, 768)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
 zoom = Vector2(0.28, 0.28)
+position_smoothing_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="UI" instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-script = ExtResource("7_o6xl0")

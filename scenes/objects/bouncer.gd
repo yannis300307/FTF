@@ -5,3 +5,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
 		body.linear_velocity.y = 0.
 		body.apply_central_impulse(Vector2(0., -1200.))
+		$AnimationPlayer.play("bounce")

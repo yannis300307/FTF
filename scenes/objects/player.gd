@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 		apply_force(Vector2(-strenght, 0.))
 	if Input.is_action_pressed("ui_right"):
 		apply_force(Vector2(strenght, 0.))
+	
 
 func finish_level(exact_coords: Vector2):
 	if in_transition: return
@@ -26,3 +27,22 @@ func finish_level(exact_coords: Vector2):
 	tween.tween_property(self, "in_transition", false, 0.0).set_delay(2.0)
 	tween.tween_callback(func():$AnimationPlayer.play("level_end")).set_delay(1.0)
 	tween.tween_property(self, "visible", false, 0.0).set_delay(2.0)
+	tween.tween_callback(Autoload.next_level.emit).set_delay(2.1)
+	await tween.finished
+	
+
+func teleport(pos: Vector2):
+	PhysicsServer2D.body_set_state(
+		get_rid(),
+		PhysicsServer2D.BODY_STATE_TRANSFORM,
+		Transform2D.IDENTITY.translated(pos)
+	)
+
+func respawn(pos: Vector2):
+	freeze = true
+	teleport(pos)
+	visible = true
+	$AnimationPlayer.play("spawn")
+	await $AnimationPlayer.animation_finished
+	can_move = true
+	freeze = false

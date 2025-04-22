@@ -1,16 +1,16 @@
-[gd_scene load_steps=9 format=4 uid="uid://btw72qlqph884"]
+[gd_scene load_steps=9 format=4 uid="uid://cadxm5at2ch24"]
 
-[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_n7ypv"]
-[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_0s5r2"]
-[ext_resource type="PackedScene" uid="uid://cc0fh5k453mdk" path="res://scenes/objects/bouncer.tscn" id="3_7j8ne"]
-[ext_resource type="PackedScene" uid="uid://dct6k0f1smjnh" path="res://scenes/objects/reverse_item.tscn" id="4_7dov7"]
-[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="5_ehv2h"]
+[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_fmg3e"]
+[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_ftfob"]
+[ext_resource type="PackedScene" uid="uid://cc0fh5k453mdk" path="res://scenes/objects/bouncer.tscn" id="3_fkk1g"]
+[ext_resource type="PackedScene" uid="uid://dct6k0f1smjnh" path="res://scenes/objects/reverse_item.tscn" id="4_ugcn1"]
+[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="5_pimnq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lquwl"]
 absorbent = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
-texture = ExtResource("2_0s5r2")
+texture = ExtResource("2_ftfob")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -26,10 +26,10 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_lquwl")
 sources/0 = SubResource("TileSetAtlasSource_lquwl")
 
-[node name="level1" type="Node2D"]
+[node name="level2" type="Node2D"]
 
 [node name="centering" type="Node2D" parent="."]
-script = ExtResource("1_n7ypv")
+script = ExtResource("1_fmg3e")
 
 [node name="map" type="TileMapLayer" parent="centering"]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADABAA4AAAACAAAAACA=")
@@ -37,20 +37,23 @@ tile_set = SubResource("TileSet_7mycd")
 
 [node name="tiles_transition" type="Node2D" parent="centering"]
 
-[node name="bouncer" parent="centering" instance=ExtResource("3_7j8ne")]
+[node name="bouncer" parent="centering" instance=ExtResource("3_fkk1g")]
 position = Vector2(1344, 960)
 
-[node name="bouncer2" parent="centering" instance=ExtResource("3_7j8ne")]
+[node name="bouncer2" parent="centering" instance=ExtResource("3_fkk1g")]
 position = Vector2(1717, 1851)
 
-[node name="bouncer3" parent="centering" instance=ExtResource("3_7j8ne")]
+[node name="bouncer3" parent="centering" instance=ExtResource("3_fkk1g")]
 position = Vector2(804, 1471)
 
-[node name="reverse_item" parent="centering" instance=ExtResource("4_7dov7")]
+[node name="reverse_item" parent="centering" instance=ExtResource("4_ugcn1")]
 position = Vector2(1216, 1471)
 
-[node name="reverse_item2" parent="centering" instance=ExtResource("4_7dov7")]
+[node name="reverse_item2" parent="centering" instance=ExtResource("4_ugcn1")]
 position = Vector2(448, 896)
 
-[node name="level_end" parent="centering" instance=ExtResource("5_ehv2h")]
+[node name="level_end" parent="centering" instance=ExtResource("5_pimnq")]
 position = Vector2(1728, 320)
+
+[node name="player_spawn" type="Node2D" parent="centering"]
+position = Vector2(256, 1792)

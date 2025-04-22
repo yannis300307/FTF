@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxaxoh2fkbt3f"]
+
+[ext_resource type="Script" uid="uid://cg5rv5vqirwsp" path="res://scenes/objects/single_pass_wall.gd" id="1_qgdct"]
+[ext_resource type="Texture2D" uid="uid://bev7mp8yirpym" path="res://assets/textures/single_pass_wall_full.png" id="2_spsff"]
+[ext_resource type="Texture2D" uid="uid://d1wu8encatjve" path="res://assets/textures/single_pass_wall_empty.png" id="3_c8sqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2trqq"]
+size = Vector2(128, 256)
+
+[sub_resource type="Animation" id="Animation_5x4lh"]
+resource_name = "close"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("closed:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_kq3d1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("closed:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ke17r"]
+_data = {
+&"RESET": SubResource("Animation_kq3d1"),
+&"close": SubResource("Animation_5x4lh")
+}
+
+[node name="single_pass_wall" type="StaticBody2D"]
+script = ExtResource("1_qgdct")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_2trqq")
+
+[node name="true_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2trqq")
+disabled = true
+
+[node name="closed" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_spsff")
+
+[node name="open" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -3.8147e-06)
+scale = Vector2(0.512, 0.5)
+texture = ExtResource("3_c8sqv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ke17r")
+}
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="5_5rr72"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lquwl"]
-absorbent = true
+bounce = 0.1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("2_5hph3")
@@ -49,8 +49,8 @@ position = Vector2(804, 1471)
 [node name="reverse_item" parent="centering" instance=ExtResource("4_bjebc")]
 position = Vector2(1216, 1471)
 
-[node name="reverse_item2" parent="centering" instance=ExtResource("4_bjebc")]
-position = Vector2(448, 896)
-
 [node name="level_end" parent="centering" instance=ExtResource("5_5rr72")]
 position = Vector2(1728, 320)
+
+[node name="player_spawn" type="Node2D" parent="centering"]
+position = Vector2(256, 1792)

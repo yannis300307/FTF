@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="27.269178mm"
+   height="13.153452mm"
+   viewBox="0 0 27.269178 13.153452"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="0.5"
+       markerHeight="0.5"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid"
+       markerUnits="strokeWidth">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-17.66368,-20.065776)">
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#1dbebc;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="26.26918"
+       height="12.153453"
+       x="18.163681"
+       y="20.565775"
+       ry="3.9193728" />
+    <path
+       style="fill:#cccccc;fill-rule:evenodd;stroke:#1dbebc;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#RoundedArrow)"
+       d="m 85.132218,72.152017 c -3.998496,0 -7.996992,0 -11.995487,0"
+       id="path1"
+       transform="matrix(0.99917203,0,0,0.99917209,-50.75601,-45.449781)" />
+  </g>
+</svg>
