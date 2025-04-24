@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="52.020191mm"
+   height="11.002292mm"
+   viewBox="0 0 52.020191 11.002292"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="background_1.svg"
+   inkscape:export-xdpi="124.99761"
+   inkscape:export-ydpi="124.99761"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-50.202176,-78.307043)">
+    <rect
+       style="fill:#d0a479;fill-opacity:1;fill-rule:evenodd;stroke:#d0a479;stroke-width:2.89999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="rect1"
+       width="49.120205"
+       height="8.1023016"
+       x="51.652172"
+       y="79.757034"
+       ry="2.8909912" />
+  </g>
+</svg>

@@ -8,15 +8,19 @@ var y_reversed = false
 
 var rng = RandomNumberGenerator.new()
 
-func reset():
+func reset_items():
 	reverse_item_picked_vertical = 0
 	reverse_item_picked_horizontal = 0
+
+func reset(): # called by main
+	reset_items()
 	x_reversed = false
 	y_reversed = false
-	flip_center(false, false)
+	await flip_center(false, false)
 	
 
 func flip_center(x_reverse: bool, y_reverse: bool, delay: float = 0.0):
+	Autoload.update_level_transition.emit(true)
 	get_node("/root/main/player").set_deferred("freeze", true)
 	$level_end.wait_transition(true)
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
@@ -31,11 +35,14 @@ func flip_center(x_reverse: bool, y_reverse: bool, delay: float = 0.0):
 	tween.tween_property(self, "position", Vector2(target_x, target_y), delay).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(func():get_node("/root/main/player").set_deferred("freeze", false)).set_delay(delay)
 	tween.tween_callback(func():$level_end.wait_transition(false)).set_delay(delay)
+	await tween.finished
 
 	x_reversed = x_reverse
 	y_reversed = y_reverse
+	Autoload.update_level_transition.emit(false)
 
 func add_one_reverse_item(mode: int):
+	if Autoload.current_level != get_parent(): return
 	if mode == 0:
 		reverse_item_picked_vertical += 1
 		get_node("/root/main/UI/UI").set_reverse_amount(reverse_item_picked_vertical, mode)
@@ -46,7 +53,6 @@ func add_one_reverse_item(mode: int):
 
 func _ready() -> void:
 	flip_center(false, false)
-	Autoload.reverse_item_picked_up.connect(add_one_reverse_item)
 	
 	# Generate the map shadow
 	var shadow_map: TileMapLayer = $map.duplicate()
@@ -56,11 +62,14 @@ func _ready() -> void:
 	add_child(shadow_map, false, 1)
 	
 	Autoload.ask_reverse.connect(ask_reverse)
-	Autoload.reset_level.connect(reset)
+	Autoload.clear_items.connect(reset_items)
+	Autoload.reverse_item_picked_up.connect(add_one_reverse_item)
 
 
 func ask_reverse(x_reverse: bool, y_reverse: bool):
 	if Autoload.current_level != get_parent(): return
+	
+	Autoload.level_flipped.emit()
 	
 	if ((x_reverse and not y_reverse) and reverse_item_picked_vertical) or ((y_reverse and not x_reverse) and reverse_item_picked_horizontal) or ((x_reverse and y_reverse) and reverse_item_picked_horizontal):
 		if x_reverse and y_reverse:

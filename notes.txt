@@ -1,0 +1,26 @@
+Idée nom : utiliser le mot "flipper" car inverser = flip + ressemble à un flipper
+idée temp : Flip the Flipper
+
+fix:
+ - flash particule apres changement niveau
+
+
+musiques :
+
+November - Chill Fall Autumn Lofi Hip-Hop by FASSounds
+Fireplace by FASSounds
+Hot Coffee - Lofi Vlog Chill Hop by FASSounds
+No Copyright Music Lofi by DELOSound
+Chill Lofi Background Music by lNPLUSMUSIC
+Lofi Relaxing Chill Music by MFCC
+Lofi Hip Hop | Background Lofi Music by SigmaMusicArt
+Lofi Background Music by DELOSound
+Lofi Chill by DELOSound
+Good Night - Lofi Cozy Chill Music by FASSounds (The best)
+
+
+Sound design :
+Lasonotheque
+Leszek_Szary (Freesound)
+floraphonic
+Lightningbulb

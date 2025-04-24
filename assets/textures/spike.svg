@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="70.307915mm"
+   height="24.180065mm"
+   viewBox="0 0 70.307915 24.180065"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="spike.svg"
+   inkscape:export-xdpi="184.96921"
+   inkscape:export-ydpi="184.96921"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#d24b4b;fill-opacity:1;fill-rule:evenodd;stroke:#d24b4b;stroke-width:2.89999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 35.494504,1.449969 1.4496348,22.730069 H 69.539368 Z"
+       id="path2"
+       sodipodi:nodetypes="cccc" />
+  </g>
+</svg>

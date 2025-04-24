@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="49.999992mm"
+   height="49.999992mm"
+   viewBox="0 0 49.999993 49.999992"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="single_dir_reverse_dis.png"
+   inkscape:export-xdpi="260.09604"
+   inkscape:export-ydpi="260.09604"
+   sodipodi:docname="retry.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.73890575"
+     inkscape:cx="121.12505"
+     inkscape:cy="127.89182"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="0.5"
+       markerHeight="0.5"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#cccccc;fill-rule:evenodd;stroke:#758787;stroke-width:3.19735;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="46.802647"
+       height="46.802647"
+       x="1.5986754"
+       y="1.5986754"
+       ry="9.7494545" />
+    <path
+       id="path6"
+       style="fill:none;fill-rule:evenodd;stroke:#758787;stroke-width:3.09999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
+       d="m 26.551603,38.010746 a 13.102941,13.102941 0 0 1 -1.551605,0.09219 13.102941,13.102941 0 0 1 -13.10294,-13.102941 13.102941,13.102941 0 0 1 13.10294,-13.10294 13.102941,13.102941 0 0 1 13.102941,13.10294 v 0 a 13.102941,13.102941 0 0 1 -0.09219,1.551605" />
+  </g>
+</svg>

@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="27.810829mm"
-   height="56.966053mm"
-   viewBox="0 0 27.810829 56.966053"
+   width="27.850878mm"
+   height="57.038597mm"
+   viewBox="0 0 27.850878 57.038597"
    version="1.1"
    id="svg1"
-   sodipodi:docname="single_pass_wall.svg"
+   sodipodi:docname="single_pass_wall_empty.svg"
    xml:space="preserve"
    inkscape:export-filename="single_pass_wall_empty.svg"
    inkscape:export-xdpi="467.61642"
@@ -29,12 +29,12 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0.5204828,0.31394813)"><path
-       style="fill:none;fill-rule:evenodd;stroke:#331605;stroke-width:3.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     transform="translate(0.53221822,0.35022017)"><path
+       style="fill:none;fill-rule:evenodd;stroke:#6a3b20;stroke-width:3.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        d="m 4.2045184,1.2360518 c 0,0 10.8506546,0 17.6850486,0 1.815274,0 3.850777,2.035503 3.850777,3.850777 0,11.2949692 0,33.6111032 0,33.6111032"
        id="path1"
        sodipodi:nodetypes="cssc" /><path
-       style="fill:none;fill-rule:evenodd;stroke:#331605;stroke-width:3.09999;stroke-linecap:round;stroke-linejoin:round"
+       style="fill:none;fill-rule:evenodd;stroke:#6a3b20;stroke-width:3.09999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
        d="m 22.565342,55.102109 c 0,0 -10.850655,0 -17.6850486,0 -1.815274,0 -3.850777,-2.035503 -3.850777,-3.850777 0,-11.294969 0,-33.611103 0,-33.611103"
        id="path2"
        sodipodi:nodetypes="cssc" /></g></svg>

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://didvo55ragmde"]
+
+[ext_resource type="Script" uid="uid://uoe6vl2kis0t" path="res://scenes/ui/menu.gd" id="1_cx0sj"]
+[ext_resource type="Texture2D" uid="uid://bhlh8pgmy3x1q" path="res://assets/textures/ui/play_button.png" id="1_w6y0u"]
+[ext_resource type="Texture2D" uid="uid://d2sfw16osylwk" path="res://assets/textures/ui/play_button_hover.png" id="2_cx0sj"]
+[ext_resource type="Texture2D" uid="uid://mimm4710nfdc" path="res://assets/textures/ui/credits_button.png" id="3_ntye7"]
+[ext_resource type="Texture2D" uid="uid://ch6uwvpswrncf" path="res://assets/textures/ui/credits_button_hover.png" id="4_cghgw"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cx0sj")
+
+[node name="main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="play" type="TextureButton" parent="main"]
+layout_mode = 0
+offset_left = -524.0
+offset_top = -207.0
+offset_right = 526.0
+offset_bottom = 177.0
+texture_normal = ExtResource("1_w6y0u")
+texture_hover = ExtResource("2_cx0sj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="credits" type="TextureButton" parent="main"]
+layout_mode = 0
+offset_left = -524.0
+offset_top = 433.0
+offset_right = 526.0
+offset_bottom = 817.0
+texture_normal = ExtResource("3_ntye7")
+texture_hover = ExtResource("4_cghgw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="main/play" to="." method="_on_play_pressed"]

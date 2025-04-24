@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="46.088963mm"
+   height="14.916226mm"
+   viewBox="0 0 46.088963 14.916226"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="button_released.svg"
+   inkscape:export-xdpi="210.22884"
+   inkscape:export-ydpi="210.22884"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-25.664733,-5.7095626)">
+    <rect
+       style="fill:#ff8090;fill-opacity:1;fill-rule:evenodd;stroke:#bb443c;stroke-width:3.21332;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="rect2"
+       width="42.875645"
+       height="11.702906"
+       x="27.271393"
+       y="7.3162227"
+       ry="3.5753863" />
+  </g>
+</svg>

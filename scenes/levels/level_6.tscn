@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=4 uid="uid://5yh4gtv8qfe7"]
+
+[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_g44gb"]
+[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_741xk"]
+[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="3_i0fhw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lquwl"]
+absorbent = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
+texture = ExtResource("2_741xk")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, -32, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -64, -64, -32, -64, 32, -32, 64, 64, 64, 64, -64)
+
+[sub_resource type="TileSet" id="TileSet_7mycd"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_lquwl")
+sources/0 = SubResource("TileSetAtlasSource_lquwl")
+
+[node name="level" type="Node2D"]
+
+[node name="centering" type="Node2D" parent="."]
+script = ExtResource("1_g44gb")
+
+[node name="map" type="TileMapLayer" parent="centering"]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADABAA4AAAACAAAAACA=")
+tile_set = SubResource("TileSet_7mycd")
+
+[node name="level_end" parent="centering" instance=ExtResource("3_i0fhw")]
+position = Vector2(1728, 320)
+
+[node name="player_spawn" type="Node2D" parent="centering"]
+position = Vector2(256, 1792)

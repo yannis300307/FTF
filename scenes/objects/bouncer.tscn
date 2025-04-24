@@ -1,10 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc0fh5k453mdk"]
+[gd_scene load_steps=8 format=3 uid="uid://cc0fh5k453mdk"]
 
-[ext_resource type="Script" uid="uid://cj0ah7op1lvx5" path="res://scenes/objects/bouncer.gd" id="1_f2aea"]
+[ext_resource type="Script" uid="uid://cj0ah7op1lvx5" path="res://scenes/objects/scripts/bouncer.gd" id="1_f2aea"]
 [ext_resource type="Texture2D" uid="uid://dv7p082xyuxud" path="res://assets/textures/bouncer.png" id="2_1kaki"]
+[ext_resource type="AudioStream" uid="uid://dguofgo5tra2u" path="res://assets/sound_design/bounce.mp3" id="3_tl52p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(80, 40)
+
+[sub_resource type="Animation" id="Animation_tl52p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 40)]
+}
 
 [sub_resource type="Animation" id="Animation_1kaki"]
 resource_name = "bounce"
@@ -20,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(3.73213, 1, 1),
 "update": 0,
 "values": [Vector2(0, 40), Vector2(0, 14), Vector2(0, 40)]
-}
-
-[sub_resource type="Animation" id="Animation_tl52p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 40)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_caypf"]
@@ -59,5 +60,10 @@ shape = SubResource("RectangleShape2D_lquwl")
 libraries = {
 &"": SubResource("AnimationLibrary_caypf")
 }
+
+[node name="bounce" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tl52p")
+volume_db = 7.051
+bus = &"sound_design"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

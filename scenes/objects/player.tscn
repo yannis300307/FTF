@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://h111bw0d7aq4"]
+[gd_scene load_steps=12 format=3 uid="uid://h111bw0d7aq4"]
 
-[ext_resource type="Script" uid="uid://c1xkuvdojyvww" path="res://scenes/objects/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://c1xkuvdojyvww" path="res://scenes/objects/scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://vek31sebs4r1" path="res://assets/textures/player.png" id="2_2147m"]
+[ext_resource type="AudioStream" uid="uid://xthlmnitfx62" path="res://assets/sound_design/floor_hit.mp3" id="3_h5uus"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
 radius = 64.0
@@ -40,7 +41,23 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_q8hb4"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.4, 0.4), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2147m"]
@@ -54,7 +71,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 0.6)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -65,11 +82,12 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 0.6)
 }
 
 [sub_resource type="Animation" id="Animation_54rde"]
 resource_name = "spawn"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -86,21 +104,48 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_54rde"]
 _data = {
 &"RESET": SubResource("Animation_h5uus"),
+&"death": SubResource("Animation_q8hb4"),
 &"level_end": SubResource("Animation_2147m"),
 &"spawn": SubResource("Animation_54rde")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2147m"]
+radius = 38.0132
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5uus"]
+radius = 67.0
+
 [node name="player" type="RigidBody2D"]
+contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_onrkg")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2147m")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h2yge")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2147m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_54rde")
 }
+
+[node name="core" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="core"]
+shape = SubResource("CircleShape2D_2147m")
+
+[node name="floor_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h5uus")
+max_polyphony = 4
+bus = &"sound_design"
+
+[node name="walls_detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls_detector"]
+shape = SubResource("CircleShape2D_h5uus")
+
+[connection signal="body_entered" from="core" to="." method="_on_core_body_entered"]
+[connection signal="body_entered" from="walls_detector" to="." method="_on_walls_detector_body_entered"]

@@ -3,11 +3,11 @@
 
 <svg
    width="27.810829mm"
-   height="56.966053mm"
-   viewBox="0 0 27.810829 56.966053"
+   height="56.966057mm"
+   viewBox="0 0 27.810829 56.966057"
    version="1.1"
    id="svg1"
-   sodipodi:docname="single_pass_wall.svg"
+   sodipodi:docname="single_pass_wall_full.svg"
    xml:space="preserve"
    inkscape:export-filename="single_pass_wall_full.png"
    inkscape:export-xdpi="228.29034"
@@ -29,8 +29,8 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0.5204828,0.31394813)"><rect
-       style="fill:#461900;fill-opacity:1;fill-rule:evenodd;stroke:#331605;stroke-width:2.05108;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     transform="translate(0.52048278,0.31394768)"><rect
+       style="fill:#7e4e33;fill-opacity:1;fill-rule:evenodd;stroke:#644533;stroke-width:2.05108;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="rect2"
        width="25.759748"
        height="54.914974"

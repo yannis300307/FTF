@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnhx4va2w4wja"]
+[gd_scene load_steps=5 format=3 uid="uid://dnhx4va2w4wja"]
 
-[ext_resource type="Script" uid="uid://ck33c73mxe5tg" path="res://scenes/objects/level_end.gd" id="1_2hyyh"]
+[ext_resource type="Script" uid="uid://ck33c73mxe5tg" path="res://scenes/objects/scripts/level_end.gd" id="1_2hyyh"]
 [ext_resource type="Texture2D" uid="uid://c1d4l3oakphqy" path="res://assets/textures/level_end.png" id="2_2hyyh"]
+[ext_resource type="AudioStream" uid="uid://dj8o2vkwa7e16" path="res://assets/sound_design/level_end.mp3" id="3_73y42"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lmp1b"]
 radius = 64.0
@@ -15,5 +16,9 @@ texture = ExtResource("2_2hyyh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lmp1b")
+
+[node name="finish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_73y42")
+bus = &"sound_design"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

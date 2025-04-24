@@ -1,27 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dct6k0f1smjnh"]
+[gd_scene load_steps=11 format=3 uid="uid://dct6k0f1smjnh"]
 
-[ext_resource type="Script" uid="uid://b4rxwrwbkv4ne" path="res://scenes/objects/reverse_item.gd" id="1_yep1a"]
+[ext_resource type="Script" uid="uid://b4rxwrwbkv4ne" path="res://scenes/objects/scripts/reverse_item.gd" id="1_yep1a"]
 [ext_resource type="Texture2D" uid="uid://bnagdl7rs08a4" path="res://assets/textures/reverse_item_v.png" id="2_s3uj8"]
 [ext_resource type="Texture2D" uid="uid://u6fdsxanqqjn" path="res://assets/textures/reverse_item_h.png" id="3_yjs0w"]
+[ext_resource type="AudioStream" uid="uid://th7ii15c1a05" path="res://assets/sound_design/collect.mp3" id="4_yjs0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrbxd"]
-size = Vector2(128, 80)
-
-[sub_resource type="Animation" id="Animation_s3uj8"]
-resource_name = "spawn"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprites:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5),
-"transitions": PackedFloat32Array(8, 0.2, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
+size = Vector2(128, 128)
 
 [sub_resource type="Animation" id="Animation_yjs0w"]
 length = 0.001
@@ -102,6 +87,22 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
 }
 
+[sub_resource type="Animation" id="Animation_s3uj8"]
+resource_name = "spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(8, 0.2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_6koa5"]
 resource_name = "wait"
 length = 2.0
@@ -131,7 +132,6 @@ _data = {
 script = ExtResource("1_yep1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_vrbxd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -154,5 +154,9 @@ texture = ExtResource("2_s3uj8")
 [node name="horizontal" type="Sprite2D" parent="sprites"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_yjs0w")
+
+[node name="collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yjs0w")
+bus = &"sound_design"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
