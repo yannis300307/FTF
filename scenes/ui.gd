@@ -3,6 +3,8 @@ extends Control
 var reverse_amount_v = 0
 var reverse_amount_h = 0
 
+var lock = false
+
 func set_reverse_amount(amount: int, mode: int):
 	if mode == 0:
 		if $reverse_btns/rv/reverse_v/reverse_amount.text != str(amount): $reverse_btns/rv/reverse_v/AnimationPlayer.play("update")
@@ -47,6 +49,12 @@ func _ready() -> void:
 	Autoload.reset_level.connect(reset)
 	Autoload.clear_items.connect(reset)
 	Autoload.ask_reset.connect(reset_with_transition)
+	Autoload.game_end.connect(game_end)
+
+func game_end():
+	$transition_animation.play("hide_ui")
+	await $transition_animation.animation_finished
+	visible = false
 
 func _on_retry_pressed() -> void:
 	Autoload.ask_reset.emit()

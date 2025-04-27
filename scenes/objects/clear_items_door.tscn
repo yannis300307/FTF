@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://j0o1k3vjyqje"]
+[gd_scene load_steps=8 format=3 uid="uid://j0o1k3vjyqje"]
 
 [ext_resource type="Script" uid="uid://cjkbuhwrucay" path="res://scenes/objects/scripts/clear_items_door.gd" id="1_c6yga"]
 [ext_resource type="Texture2D" uid="uid://ygj0kjvvc4lw" path="res://assets/textures/items_clear_door.png" id="2_t4f5k"]
+[ext_resource type="AudioStream" uid="uid://dw1qeom4pxsxs" path="res://assets/sound_design/clear_items.mp3" id="3_t4f5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3t5n"]
 size = Vector2(128, 256)
@@ -57,5 +58,10 @@ shape = SubResource("RectangleShape2D_c3t5n")
 libraries = {
 &"": SubResource("AnimationLibrary_c3t5n")
 }
+
+[node name="clear_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t4f5k")
+volume_db = 5.0
+bus = &"sound_design"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

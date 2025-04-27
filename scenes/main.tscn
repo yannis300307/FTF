@@ -1,22 +1,26 @@
-[gd_scene load_steps=22 format=3 uid="uid://swrf0wutqabg"]
+[gd_scene load_steps=26 format=3 uid="uid://swrf0wutqabg"]
 
 [ext_resource type="PackedScene" uid="uid://i3d061tgp1fv" path="res://scenes/levels/level_1.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://lvpn727bbeys" path="res://scenes/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://du8jfy75h56x" path="res://scenes/ui.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://btw72qlqph884" path="res://scenes/levels/level_2.tscn" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://brrlisclhb0ur" path="res://assets/textures/particles/background_1.png" id="2_tipki"]
-[ext_resource type="PackedScene" uid="uid://cadxm5at2ch24" path="res://scenes/levels/level_3.tscn" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://cadxm5at2ch24" path="res://scenes/levels/level_4.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://h111bw0d7aq4" path="res://scenes/objects/player.tscn" id="5_85g3d"]
-[ext_resource type="PackedScene" uid="uid://8c7osn48f8" path="res://scenes/levels/level_5.tscn" id="7_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://dl02ecyulsytq" path="res://scenes/levels/level_4.tscn" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://b15wbka1xfnbg" path="res://music_player.gd" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://8c7osn48f8" path="res://scenes/levels/level_6.tscn" id="9_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://5yh4gtv8qfe7" path="res://scenes/levels/level_7.tscn" id="9_jscy8"]
 [ext_resource type="AudioStream" uid="uid://ecjeeknqpjnf" path="res://assets/sound_design/flip_level.mp3" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://didvo55ragmde" path="res://scenes/ui/menu.tscn" id="10_muem4"]
 [ext_resource type="Script" uid="uid://0m40q6bjflau" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="11_ya4ey"]
 [ext_resource type="Script" uid="uid://cov2ipus7582n" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://c2088o57le07c" path="res://addons/shaker/data/Vector2/ShakerTypeSineWave2D.gd" id="13_muem4"]
 [ext_resource type="Script" uid="uid://jcch5kvgm8a3" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="14_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://d3akg8b1dr6qx" path="res://scenes/ui/game_end.tscn" id="14_yc10j"]
+[ext_resource type="PackedScene" uid="uid://84tfh4d4dth" path="res://scenes/levels/level_3.tscn" id="15_gqmmt"]
 [ext_resource type="Script" uid="uid://5qk6srlohoxq" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="16_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://d3jfweauhllur" path="res://scenes/levels/level_8.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" uid="uid://4dfx86g4xd" path="res://scenes/levels/level_5.tscn" id="17_yc10j"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_85g3d"]
 particle_flag_disable_z = true
@@ -65,13 +69,12 @@ metadata/_custom_type_script = "uid://5qk6srlohoxq"
 
 [node name="main" type="Node2D" node_paths=PackedStringArray("levels")]
 script = ExtResource("1_tbgi4")
-levels = [NodePath("level1"), NodePath("level2"), NodePath("level3"), NodePath("level4"), NodePath("level5")]
+levels = [NodePath("level"), NodePath("level2"), NodePath("level3"), NodePath("level4"), NodePath("level5"), NodePath("level6"), NodePath("level7")]
 
 [node name="bg_particles" type="GPUParticles2D" parent="."]
 amount = 100
 texture = ExtResource("2_tipki")
 lifetime = 20.0
-preprocess = 20.0
 process_material = SubResource("ParticleProcessMaterial_85g3d")
 
 [node name="pre_emitter" type="GPUParticles2D" parent="."]
@@ -83,19 +86,29 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_tipki")
 
-[node name="level1" parent="." instance=ExtResource("1_jyhfs")]
+[node name="level" parent="." instance=ExtResource("1_jyhfs")]
+position = Vector2(16, -40)
 
 [node name="level2" parent="." instance=ExtResource("2_tbgi4")]
-position = Vector2(3584, -2560)
+position = Vector2(4320, -2784)
 
-[node name="level3" parent="." instance=ExtResource("4_tefeu")]
-position = Vector2(-676, -4992)
+[node name="level3" parent="." instance=ExtResource("15_gqmmt")]
+position = Vector2(1784, -7072)
 
-[node name="level4" parent="." instance=ExtResource("7_o6xl0")]
-position = Vector2(-5332, -3604)
+[node name="level4" parent="." instance=ExtResource("4_tefeu")]
+position = Vector2(-3072, -7136)
 
-[node name="level5" parent="." instance=ExtResource("7_jbj1t")]
-position = Vector2(-5798, 544)
+[node name="level5" parent="." instance=ExtResource("17_yc10j")]
+position = Vector2(-6592, -3672)
+
+[node name="level6" parent="." instance=ExtResource("9_gqmmt")]
+position = Vector2(-7632, 824)
+
+[node name="level7" parent="." instance=ExtResource("9_jscy8")]
+position = Vector2(-6408, 4816)
+
+[node name="level8" parent="." instance=ExtResource("17_muem4")]
+position = Vector2(-2880, 8448)
 
 [node name="player" parent="." instance=ExtResource("5_85g3d")]
 unique_name_in_owner = true
@@ -105,6 +118,7 @@ position = Vector2(-1985, 4461)
 
 [node name="UI" parent="UI" instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
+mouse_filter = 1
 
 [node name="menu" parent="." instance=ExtResource("10_muem4")]
 offset_left = 3265.0
@@ -112,6 +126,12 @@ offset_top = 4511.0
 offset_right = 3265.0
 offset_bottom = 4511.0
 pivot_offset = Vector2(576, 324)
+
+[node name="game_end" parent="." instance=ExtResource("14_yc10j")]
+offset_left = 5318.0
+offset_top = 7945.0
+offset_right = 7579.0
+offset_bottom = 9060.0
 
 [node name="music_player" type="AudioStreamPlayer" parent="."]
 bus = &"music"

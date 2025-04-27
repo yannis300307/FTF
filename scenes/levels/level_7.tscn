@@ -1,14 +1,21 @@
-[gd_scene load_steps=7 format=4 uid="uid://bc1qthocnix2s"]
+[gd_scene load_steps=14 format=4 uid="uid://5yh4gtv8qfe7"]
 
-[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_bl61q"]
-[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_772ry"]
-[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="3_d06uk"]
+[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_g44gb"]
+[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_741xk"]
+[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="3_i0fhw"]
+[ext_resource type="PackedScene" uid="uid://7vf0c434w24p" path="res://scenes/objects/remote_door.tscn" id="4_5wshb"]
+[ext_resource type="PackedScene" uid="uid://co70mewadxllq" path="res://scenes/objects/button.tscn" id="5_7x7cx"]
+[ext_resource type="PackedScene" uid="uid://dxaxoh2fkbt3f" path="res://scenes/objects/single_pass_wall.tscn" id="6_b6i88"]
+[ext_resource type="PackedScene" uid="uid://cc0fh5k453mdk" path="res://scenes/objects/bouncer.tscn" id="7_7x7cx"]
+[ext_resource type="PackedScene" uid="uid://dct6k0f1smjnh" path="res://scenes/objects/reverse_item.tscn" id="8_e18e5"]
+[ext_resource type="PackedScene" uid="uid://cm4akxsgpto50" path="res://scenes/objects/spike.tscn" id="9_m5qie"]
+[ext_resource type="PackedScene" uid="uid://j0o1k3vjyqje" path="res://scenes/objects/clear_items_door.tscn" id="10_m5qie"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lquwl"]
 absorbent = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
-texture = ExtResource("2_772ry")
+texture = ExtResource("2_741xk")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -27,14 +34,81 @@ sources/0 = SubResource("TileSetAtlasSource_lquwl")
 [node name="level" type="Node2D"]
 
 [node name="centering" type="Node2D" parent="."]
-script = ExtResource("1_bl61q")
+script = ExtResource("1_g44gb")
 
 [node name="map" type="TileMapLayer" parent="centering"]
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADABAA4AAAACAAAAACA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADAGAAwAAAADAAAAAGAGAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAJAAwAAAABAAAAAGAJAAsAAAAAAAAAAAAJAAoAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAJAAMAAAABAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAABAAAAAGAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAABAAAAADAFAAYAAAADAAAAAAACAAYAAAADAAAAADABAAYAAAAAAAAAAAADAAwAAAADAAAAAAAEAAwAAAADAAAAADABAAoAAAACAAAAAAAFAAoAAAACAAAAAFABAA4AAAACAAAAAGABAAgAAAACAAAAAGAOAAgAAAACAAAAADAOAAcAAAACAAAAAFAOAAUAAAACAAAAADAKAAUAAAACAAAAAGAFAAUAAAACAAAAADABAAUAAAACAAAAAGAGAAMAAAABAAAAAFABAAcAAAACAAAAAAAKAAwAAAAAAAAAAAALAAwAAAAAAAAAAAAMAAwAAAADAAAAADAKAAsAAAACAAAAAGAKAAoAAAACAAAAAAAOAAoAAAACAAAAAFAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAMAAMAAAADAAAAADAKAAQAAAACAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAADAAAAAAAFAAQAAAACAAAAAFAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAHAAoAAAACAAAAAAAIAAoAAAACAAAAAFA=")
 tile_set = SubResource("TileSet_7mycd")
 
-[node name="level_end" parent="centering" instance=ExtResource("3_d06uk")]
-position = Vector2(1728, 320)
+[node name="level_end" parent="centering" instance=ExtResource("3_i0fhw")]
+position = Vector2(1024, 1024)
 
 [node name="player_spawn" type="Node2D" parent="centering"]
 position = Vector2(256, 1792)
+
+[node name="remote_door" parent="centering" instance=ExtResource("4_5wshb")]
+position = Vector2(832, 1792)
+
+[node name="button" parent="centering" instance=ExtResource("5_7x7cx")]
+position = Vector2(128, 1600)
+rotation = 1.57079
+
+[node name="single_pass_wall" parent="centering" instance=ExtResource("6_b6i88")]
+position = Vector2(1216, 1792)
+
+[node name="bouncer" parent="centering" instance=ExtResource("7_7x7cx")]
+position = Vector2(704, 1856)
+
+[node name="reverse_item" parent="centering" instance=ExtResource("8_e18e5")]
+position = Vector2(512, 1408)
+
+[node name="spike" parent="centering" instance=ExtResource("9_m5qie")]
+position = Vector2(1408, 512)
+rotation = -3.14159
+
+[node name="spike8" parent="centering" instance=ExtResource("9_m5qie")]
+position = Vector2(768, 896)
+rotation = -3.14159
+
+[node name="spike9" parent="centering" instance=ExtResource("9_m5qie")]
+position = Vector2(1024, 1280)
+rotation = -3.14159
+
+[node name="spike2" parent="centering" instance=ExtResource("9_m5qie")]
+position = Vector2(1536, 512)
+rotation = -3.14159
+
+[node name="reverse_item2" parent="centering" instance=ExtResource("8_e18e5")]
+position = Vector2(1664, 1792)
+
+[node name="remote_door2" parent="centering" instance=ExtResource("4_5wshb")]
+position = Vector2(1600, 1408)
+default_closed = false
+
+[node name="bouncer2" parent="centering" instance=ExtResource("7_7x7cx")]
+position = Vector2(1792, 1856)
+
+[node name="reverse_item3" parent="centering" instance=ExtResource("8_e18e5")]
+position = Vector2(1408, 1408)
+mode = 1
+
+[node name="clear_items_door" parent="centering" instance=ExtResource("10_m5qie")]
+position = Vector2(1216, 256)
+
+[node name="bouncer3" parent="centering" instance=ExtResource("7_7x7cx")]
+position = Vector2(1792, 192)
+rotation = 3.14159
+
+[node name="bouncer4" parent="centering" instance=ExtResource("7_7x7cx")]
+position = Vector2(512, 576)
+rotation = 3.14159
+
+[node name="reverse_item4" parent="centering" instance=ExtResource("8_e18e5")]
+position = Vector2(1792, 640)
+
+[node name="reverse_item5" parent="centering" instance=ExtResource("8_e18e5")]
+position = Vector2(1472, 256)
+mode = 1
+
+[connection signal="toggle" from="centering/button" to="centering/remote_door" method="toggle"]
+[connection signal="toggle" from="centering/button" to="centering/remote_door2" method="toggle"]

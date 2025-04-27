@@ -1,18 +1,18 @@
-[gd_scene load_steps=11 format=4 uid="uid://cadxm5at2ch24"]
+[gd_scene load_steps=11 format=4 uid="uid://84tfh4d4dth"]
 
-[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_fmg3e"]
-[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_ftfob"]
-[ext_resource type="PackedScene" uid="uid://cc0fh5k453mdk" path="res://scenes/objects/bouncer.tscn" id="3_fkk1g"]
-[ext_resource type="PackedScene" uid="uid://dxaxoh2fkbt3f" path="res://scenes/objects/single_pass_wall.tscn" id="4_ftfob"]
-[ext_resource type="PackedScene" uid="uid://dct6k0f1smjnh" path="res://scenes/objects/reverse_item.tscn" id="4_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="5_pimnq"]
-[ext_resource type="PackedScene" uid="uid://cm4akxsgpto50" path="res://scenes/objects/spike.tscn" id="7_fkk1g"]
+[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_bl61q"]
+[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_772ry"]
+[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="3_d06uk"]
+[ext_resource type="PackedScene" uid="uid://dxaxoh2fkbt3f" path="res://scenes/objects/single_pass_wall.tscn" id="4_hq5i0"]
+[ext_resource type="PackedScene" uid="uid://cc0fh5k453mdk" path="res://scenes/objects/bouncer.tscn" id="5_u1w5x"]
+[ext_resource type="PackedScene" uid="uid://dct6k0f1smjnh" path="res://scenes/objects/reverse_item.tscn" id="6_posk4"]
+[ext_resource type="PackedScene" uid="uid://cm4akxsgpto50" path="res://scenes/objects/spike.tscn" id="7_u1w5x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lquwl"]
 absorbent = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
-texture = ExtResource("2_ftfob")
+texture = ExtResource("2_772ry")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -31,60 +31,78 @@ sources/0 = SubResource("TileSetAtlasSource_lquwl")
 [node name="level" type="Node2D"]
 
 [node name="centering" type="Node2D" parent="."]
-script = ExtResource("1_fmg3e")
+script = ExtResource("1_bl61q")
 
 [node name="map" type="TileMapLayer" parent="centering"]
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADABAA4AAAACAAAAACALAAwAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAIAAwAAAADAAAAAAAJAAwAAAADAAAAADALAAgAAAADAAAAAFAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAoAAAACAAAAADAOAAwAAAACAAAAAFAMAAwAAAACAAAAAAADAAEAAAACAAAAAFAFAAEAAAACAAAAAAAEAAQAAAAAAAAAAAALAAQAAAADAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAUAAAACAAAAAFAOAAMAAAACAAAAADAEAAwAAAABAAAAAGAFAAwAAAADAAAAADABAAkAAAACAAAAAGABAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAABAAAAAFABAAsAAAACAAAAAAACAAoAAAAAAAAAAAADAAsAAAACAAAAAFAEAAsAAAAAAAAAAAAFAAsAAAACAAAAAGABAAYAAAACAAAAAGABAAcAAAAAAAAAAAADAAYAAAACAAAAADAEAAYAAAAAAAAAAAABAAgAAAACAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAABAAAAADAEAAUAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADABAA4AAAACAAAAACABAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAABAAAAADAJAAoAAAABAAAAAGAKAAoAAAAAAAAAAAALAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAOAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAAJAAUAAAABAAAAAAAGAAUAAAABAAAAAFAFAAUAAAAAAAAAAAAEAAUAAAADAAAAAAABAAUAAAADAAAAADAFAAwAAAAAAAAAAAAFAAsAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAADAAAAAFAKAAEAAAAAAAAAAAAKAAIAAAADAAAAAGAKAA4AAAACAAAAAGACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAMAAoAAAAAAAAAAAANAAoAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAkAAAAAAAAAAAABAAsAAAACAAAAAAAEAAsAAAACAAAAAFAOAAsAAAACAAAAAFAOAAYAAAACAAAAAFAOAAkAAAACAAAAADAKAAkAAAACAAAAAGAKAAYAAAACAAAAAAALAAEAAAACAAAAAAAJAAEAAAACAAAAAFABAAQAAAACAAAAAGAFAAYAAAACAAAAAFAEAAQAAAACAAAAADAGAAQAAAACAAAAAGAFAAkAAAACAAAAADABAAkAAAACAAAAAGABAAYAAAACAAAAAAAJAA4AAAAAAAAAAAAJAA0AAAADAAAAAFAIAA4AAAACAAAAADAGAAsAAAACAAAAAAAOAAQAAAACAAAAADA=")
 tile_set = SubResource("TileSet_7mycd")
 
-[node name="level_end" parent="centering" instance=ExtResource("5_pimnq")]
-position = Vector2(1792, 256)
+[node name="level_end" parent="centering" instance=ExtResource("3_d06uk")]
+position = Vector2(1792, 1216)
 
 [node name="player_spawn" type="Node2D" parent="centering"]
-position = Vector2(1728, 1728)
+position = Vector2(256, 1792)
 
-[node name="single_pass_wall" parent="centering" instance=ExtResource("4_ftfob")]
-position = Vector2(1472, 1792)
+[node name="single_pass_wall" parent="centering" instance=ExtResource("4_hq5i0")]
+position = Vector2(704, 1792)
 
-[node name="bouncer" parent="centering" instance=ExtResource("3_fkk1g")]
-position = Vector2(832, 1856)
+[node name="bouncer" parent="centering" instance=ExtResource("5_u1w5x")]
+position = Vector2(896, 1856)
 
-[node name="bouncer2" parent="centering" instance=ExtResource("3_fkk1g")]
-position = Vector2(1152, 1472)
+[node name="bouncer2" parent="centering" instance=ExtResource("5_u1w5x")]
+position = Vector2(1600, 192)
+rotation = -3.14159
 
-[node name="reverse_item" parent="centering" instance=ExtResource("4_ugcn1")]
-position = Vector2(320, 1792)
-
-[node name="single_pass_wall2" parent="centering" instance=ExtResource("4_ftfob")]
-position = Vector2(1472, 1280)
-
-[node name="reverse_item2" parent="centering" instance=ExtResource("4_ugcn1")]
-position = Vector2(1728, 1280)
+[node name="reverse_item" parent="centering" instance=ExtResource("6_posk4")]
+position = Vector2(1664, 1792)
 mode = 1
 
-[node name="bouncer3" parent="centering" instance=ExtResource("3_fkk1g")]
-position = Vector2(320, 128)
+[node name="reverse_item3" parent="centering" instance=ExtResource("6_posk4")]
+position = Vector2(1664, 576)
+mode = 1
 
-[node name="spike" parent="centering" instance=ExtResource("7_fkk1g")]
-position = Vector2(1536, 640)
+[node name="reverse_item2" parent="centering" instance=ExtResource("6_posk4")]
+position = Vector2(1024, 320)
+
+[node name="spike2" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(1152, 128)
 rotation = -3.14159
 
-[node name="spike4" parent="centering" instance=ExtResource("7_fkk1g")]
-position = Vector2(1536, 128)
-rotation = -3.14159
+[node name="bouncer3" parent="centering" instance=ExtResource("5_u1w5x")]
+position = Vector2(384, 192)
+rotation = 3.14159
 
-[node name="spike5" parent="centering" instance=ExtResource("7_fkk1g")]
-position = Vector2(1664, 128)
-rotation = -3.14159
+[node name="spike10" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(256, 1280)
 
-[node name="spike6" parent="centering" instance=ExtResource("7_fkk1g")]
-position = Vector2(1792, 128)
-rotation = -3.14159
+[node name="spike11" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(384, 1280)
 
-[node name="spike2" parent="centering" instance=ExtResource("7_fkk1g")]
-position = Vector2(1664, 640)
-rotation = -3.14159
+[node name="spike12" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(512, 1280)
 
-[node name="spike3" parent="centering" instance=ExtResource("7_fkk1g")]
+[node name="spike13" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(640, 1280)
+
+[node name="spike4" parent="centering" instance=ExtResource("7_u1w5x")]
 position = Vector2(1792, 640)
-rotation = -3.14159
+
+[node name="spike5" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(1792, 1408)
+rotation = 3.14159
+
+[node name="spike6" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(1664, 1408)
+rotation = 3.14159
+
+[node name="spike7" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(1536, 1408)
+rotation = 3.14159
+
+[node name="spike8" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(1408, 1408)
+rotation = 3.14159
+
+[node name="spike9" parent="centering" instance=ExtResource("7_u1w5x")]
+position = Vector2(1280, 1408)
+rotation = 3.14159

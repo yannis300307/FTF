@@ -1,14 +1,20 @@
-[gd_scene load_steps=7 format=4 uid="uid://8c7osn48f8"]
+[gd_scene load_steps=13 format=4 uid="uid://4dfx86g4xd"]
 
-[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_dswqx"]
-[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_laj7o"]
-[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="3_fi56y"]
+[ext_resource type="Script" uid="uid://cy78026bdtqwv" path="res://scenes/level.gd" id="1_w6h2s"]
+[ext_resource type="Texture2D" uid="uid://va5cpugbd6ms" path="res://assets/textures/tileset.png" id="2_ogj6a"]
+[ext_resource type="PackedScene" uid="uid://dnhx4va2w4wja" path="res://scenes/objects/level_end.tscn" id="3_anwe6"]
+[ext_resource type="PackedScene" uid="uid://co70mewadxllq" path="res://scenes/objects/button.tscn" id="4_ogj6a"]
+[ext_resource type="PackedScene" uid="uid://7vf0c434w24p" path="res://scenes/objects/remote_door.tscn" id="5_rej77"]
+[ext_resource type="PackedScene" uid="uid://cc0fh5k453mdk" path="res://scenes/objects/bouncer.tscn" id="6_5vn0v"]
+[ext_resource type="PackedScene" uid="uid://dct6k0f1smjnh" path="res://scenes/objects/reverse_item.tscn" id="7_ts8eg"]
+[ext_resource type="PackedScene" uid="uid://cm4akxsgpto50" path="res://scenes/objects/spike.tscn" id="8_um320"]
+[ext_resource type="PackedScene" uid="uid://dxaxoh2fkbt3f" path="res://scenes/objects/single_pass_wall.tscn" id="9_um320"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lquwl"]
 absorbent = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
-texture = ExtResource("2_laj7o")
+texture = ExtResource("2_ogj6a")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -27,14 +33,69 @@ sources/0 = SubResource("TileSetAtlasSource_lquwl")
 [node name="level" type="Node2D"]
 
 [node name="centering" type="Node2D" parent="."]
-script = ExtResource("1_dswqx")
+script = ExtResource("1_w6h2s")
 
 [node name="map" type="TileMapLayer" parent="centering"]
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADABAA4AAAACAAAAACA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAFAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAABAAAAAGABAA8AAAAAAAAAAAACAA8AAAAAAAAAAAADAA8AAAAAAAAAAAAEAA8AAAAAAAAAAAAFAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAABAAAAADAPAA4AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAAwAAAAAAAAAAAABAAEAAAACAAAAAAAOAAEAAAACAAAAABAOAA4AAAACAAAAADABAA4AAAACAAAAACAEAAwAAAABAAAAAAACAAoAAAADAAAAADABAAoAAAAAAAAAAAABAAsAAAACAAAAAAABAAkAAAACAAAAAGAOAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAoAAAACAAAAADAOAAwAAAACAAAAAFAGAAwAAAABAAAAADAGAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAgAAAABAAAAAAAFAAwAAAAAAAAAAAAFAAsAAAACAAAAADANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAADAAAAADAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAkAAAACAAAAAAAOAAUAAAACAAAAAFABAAQAAAACAAAAAGAOAAMAAAACAAAAADABAAYAAAACAAAAAAAKAAgAAAAAAAAAAAALAAQAAAABAAAAAAALAAUAAAAAAAAAAAALAAgAAAABAAAAADAMAAQAAAAAAAAAAAAMAAUAAAACAAAAAAAJAAgAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAABAAAAADAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAABAAAAAGAKAAwAAAAAAAAAAAAKAA0AAAADAAAAAGALAAsAAAAAAAAAAAALAAwAAAACAAAAAAAKAAsAAAABAAAAAAAMAAsAAAAAAAAAAAAJAAEAAAACAAAAAAAGAAEAAAACAAAAAFA=")
 tile_set = SubResource("TileSet_7mycd")
 
-[node name="level_end" parent="centering" instance=ExtResource("3_fi56y")]
-position = Vector2(1728, 320)
+[node name="level_end" parent="centering" instance=ExtResource("3_anwe6")]
+position = Vector2(1024, 1600)
 
 [node name="player_spawn" type="Node2D" parent="centering"]
-position = Vector2(256, 1792)
+position = Vector2(1024, 1792)
+
+[node name="button" parent="centering" instance=ExtResource("4_ogj6a")]
+position = Vector2(1728, 1920)
+
+[node name="remote_door" parent="centering" instance=ExtResource("5_rej77")]
+position = Vector2(576, 1792)
+
+[node name="button2" parent="centering" instance=ExtResource("4_ogj6a")]
+position = Vector2(1728, 1536)
+rotation = -3.14159
+
+[node name="bouncer" parent="centering" instance=ExtResource("6_5vn0v")]
+position = Vector2(320, 1856)
+
+[node name="bouncer2" parent="centering" instance=ExtResource("6_5vn0v")]
+position = Vector2(640, 1472)
+
+[node name="reverse_item" parent="centering" instance=ExtResource("7_ts8eg")]
+position = Vector2(256, 1216)
+mode = 1
+
+[node name="spike" parent="centering" instance=ExtResource("8_um320")]
+position = Vector2(256, 768)
+rotation = 3.14159
+
+[node name="spike2" parent="centering" instance=ExtResource("8_um320")]
+position = Vector2(384, 768)
+rotation = 3.14159
+
+[node name="spike3" parent="centering" instance=ExtResource("8_um320")]
+position = Vector2(1280, 1536)
+rotation = 4.71238
+
+[node name="spike4" parent="centering" instance=ExtResource("8_um320")]
+position = Vector2(1281, 1664)
+rotation = 4.71238
+
+[node name="remote_door2" parent="centering" instance=ExtResource("5_rej77")]
+position = Vector2(1472, 1280)
+
+[node name="bouncer3" parent="centering" instance=ExtResource("6_5vn0v")]
+position = Vector2(1216, 960)
+
+[node name="bouncer4" parent="centering" instance=ExtResource("6_5vn0v")]
+position = Vector2(832, 960)
+
+[node name="reverse_item2" parent="centering" instance=ExtResource("7_ts8eg")]
+position = Vector2(320, 576)
+mode = 1
+
+[node name="single_pass_wall" parent="centering" instance=ExtResource("9_um320")]
+position = Vector2(1472, 896)
+
+[connection signal="toggle" from="centering/button" to="centering/remote_door" method="toggle"]
+[connection signal="toggle" from="centering/button2" to="centering/remote_door2" method="toggle"]

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxaxoh2fkbt3f" path="res://scenes/objects/single_pass_wall.tscn" id="6_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://cm4akxsgpto50" path="res://scenes/objects/spike.tscn" id="7_ibugp"]
 
-[node name="level2" type="Node2D"]
+[node name="level" type="Node2D"]
 
 [node name="centering" type="Node2D" parent="."]
 script = ExtResource("1_n7ypv")

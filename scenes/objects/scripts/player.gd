@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var strenght: float = 500.0
+@export var strenght: float = 80000.0
 
 var can_move = true
 var in_transition = false
@@ -28,9 +28,9 @@ func _process(delta: float) -> void:
 	if get_colliding_bodies().size() == 0:
 		strenght_to_apply /= 3.0
 	if Input.is_action_pressed("ui_left"):
-		apply_force(Vector2(-strenght_to_apply, 0.))
+		apply_force(Vector2(-strenght_to_apply*delta, 0.))
 	if Input.is_action_pressed("ui_right"):
-		apply_force(Vector2(strenght_to_apply, 0.))
+		apply_force(Vector2(strenght_to_apply*delta, 0.))
 	
 
 func finish_level(exact_coords: Vector2):

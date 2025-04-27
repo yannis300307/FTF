@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://du8jfy75h56x"]
+[gd_scene load_steps=20 format=3 uid="uid://du8jfy75h56x"]
 
 [ext_resource type="Script" uid="uid://dofl1ovnimqs" path="res://scenes/ui.gd" id="1_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://8t7xd376gyxj" path="res://assets/textures/ui/single_dir_reverse_v.png" id="1_nt7q6"]
@@ -90,20 +90,31 @@ tracks/2/keys = {
 "values": [Vector2(1004, 501.75)]
 }
 
-[sub_resource type="Animation" id="Animation_wm3ai"]
-resource_name = "transition"
-length = 0.6
+[sub_resource type="Animation" id="Animation_vdcm2"]
+resource_name = "hide_ui"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../reverse_btns:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(2, 1),
+"times": PackedFloat32Array(0, 0.533333, 1),
+"transitions": PackedFloat32Array(2, 0.6, 1),
 "update": 0,
-"values": [Vector2(740, -1805), Vector2(-579, 391)]
+"values": [Vector2(16, 0), Vector2(-87.4804, 0), Vector2(-144.615, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../retry:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1),
+"transitions": PackedFloat32Array(2, 0.6, 1),
+"update": 0,
+"values": [Vector2(1004, 501.75), Vector2(1111.39, 501.75), Vector2(1170.69, 501.75)]
 }
 
 [sub_resource type="Animation" id="Animation_7dvkv"]
@@ -133,9 +144,26 @@ tracks/1/keys = {
 "values": [Vector2(1170.69, 501.75), Vector2(1111.39, 501.75), Vector2(1004, 501.75)]
 }
 
+[sub_resource type="Animation" id="Animation_wm3ai"]
+resource_name = "transition"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(740, -1805), Vector2(-579, 391)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7vwb"]
 _data = {
 &"RESET": SubResource("Animation_8dubc"),
+&"hide_ui": SubResource("Animation_vdcm2"),
 &"show_ui": SubResource("Animation_7dvkv"),
 &"transition": SubResource("Animation_wm3ai")
 }
@@ -156,9 +184,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -148.0
+offset_left = 18.6899
 offset_top = -146.25
-offset_right = -20.0
+offset_right = 146.69
 offset_bottom = -18.25
 grow_horizontal = 0
 grow_vertical = 0
@@ -171,8 +199,8 @@ stretch_mode = 0
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_right = 144.0
+offset_left = -144.615
+offset_right = -16.615
 grow_vertical = 2
 alignment = 1
 

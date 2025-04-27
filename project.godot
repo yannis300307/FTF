@@ -22,6 +22,7 @@ Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -32,5 +33,5 @@ enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-anti_aliasing/quality/msaa_2d=1
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.841711, 0.697107, 0.527487, 1)

@@ -10,6 +10,8 @@ signal ask_reset
 signal update_level_transition(start: bool)
 signal level_flipped
 signal start_game
+signal game_end
+signal go_back_menu
 
 var rng = RandomNumberGenerator.new()
 

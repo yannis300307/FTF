@@ -26,7 +26,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_lquwl")
 sources/0 = SubResource("TileSetAtlasSource_lquwl")
 
-[node name="level1" type="Node2D"]
+[node name="level" type="Node2D"]
 
 [node name="centering" type="Node2D" parent="."]
 script = ExtResource("1_rka8t")

@@ -3,6 +3,8 @@ idée temp : Flip the Flipper
 
 fix:
  - flash particule apres changement niveau
+ - Vérifier les couleurs sur plusieurs écrans
+ - LEs items revers sont parfois inversés (graphiquement)
 
 
 musiques :
@@ -24,3 +26,5 @@ Lasonotheque
 Leszek_Szary (Freesound)
 floraphonic
 Lightningbulb
+freesound_community
+u_60prvfn0xb

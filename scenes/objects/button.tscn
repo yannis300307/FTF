@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://co70mewadxllq"]
+[gd_scene load_steps=12 format=3 uid="uid://co70mewadxllq"]
 
 [ext_resource type="Texture2D" uid="uid://cc4aa1ijy224x" path="res://assets/textures/button_top.png" id="1_2wxwk"]
 [ext_resource type="Script" uid="uid://cpfqh7t3tibxp" path="res://scenes/objects/scripts/button.gd" id="1_e5cij"]
 [ext_resource type="Texture2D" uid="uid://nra4reua487c" path="res://assets/textures/button_base.png" id="2_e5cij"]
 [ext_resource type="AudioStream" uid="uid://chad3er12atu3" path="res://assets/sound_design/big_button.mp3" id="4_bejyh"]
+[ext_resource type="AudioStream" uid="uid://oanucel0l48q" path="res://assets/sound_design/easter_egg.mp3" id="5_nsah0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bejyh"]
 size = Vector2(128, 25)
@@ -98,5 +99,10 @@ stream = ExtResource("4_bejyh")
 volume_db = 5.0
 bus = &"sound_design"
 
+[node name="easter_egg_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nsah0")
+volume_db = 5.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

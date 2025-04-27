@@ -1,10 +1,103 @@
-[gd_scene load_steps=6 format=3 uid="uid://didvo55ragmde"]
+[gd_scene load_steps=15 format=3 uid="uid://didvo55ragmde"]
 
 [ext_resource type="Script" uid="uid://uoe6vl2kis0t" path="res://scenes/ui/menu.gd" id="1_cx0sj"]
 [ext_resource type="Texture2D" uid="uid://bhlh8pgmy3x1q" path="res://assets/textures/ui/play_button.png" id="1_w6y0u"]
 [ext_resource type="Texture2D" uid="uid://d2sfw16osylwk" path="res://assets/textures/ui/play_button_hover.png" id="2_cx0sj"]
 [ext_resource type="Texture2D" uid="uid://mimm4710nfdc" path="res://assets/textures/ui/credits_button.png" id="3_ntye7"]
 [ext_resource type="Texture2D" uid="uid://ch6uwvpswrncf" path="res://assets/textures/ui/credits_button_hover.png" id="4_cghgw"]
+[ext_resource type="Texture2D" uid="uid://b4usjun2b6i5j" path="res://assets/textures/ui/title.png" id="6_ntye7"]
+[ext_resource type="Texture2D" uid="uid://d1qn10s8tcmjy" path="res://assets/textures/ui/close.png" id="7_288ov"]
+[ext_resource type="Texture2D" uid="uid://drbvblaayh82o" path="res://assets/textures/ui/back.png" id="7_cghgw"]
+[ext_resource type="Texture2D" uid="uid://bue300ftpjqid" path="res://assets/textures/ui/back_hover.png" id="8_1pxh0"]
+[ext_resource type="Texture2D" uid="uid://ctxr513civedm" path="res://assets/textures/ui/close_hover.png" id="8_tub5d"]
+
+[sub_resource type="Animation" id="Animation_cghgw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("credits:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1pxh0"]
+resource_name = "back_to_menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4000, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("credits:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4000, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ntye7"]
+resource_name = "show_credits"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4000, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("credits:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4000, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1pxh0"]
+_data = {
+&"RESET": SubResource("Animation_cghgw"),
+&"back_to_menu": SubResource("Animation_1pxh0"),
+&"show_credits": SubResource("Animation_ntye7")
+}
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -26,9 +119,9 @@ grow_vertical = 2
 [node name="play" type="TextureButton" parent="main"]
 layout_mode = 0
 offset_left = -524.0
-offset_top = -207.0
+offset_top = 65.0
 offset_right = 526.0
-offset_bottom = 177.0
+offset_bottom = 449.0
 texture_normal = ExtResource("1_w6y0u")
 texture_hover = ExtResource("2_cx0sj")
 ignore_texture_size = true
@@ -37,12 +130,86 @@ stretch_mode = 0
 [node name="credits" type="TextureButton" parent="main"]
 layout_mode = 0
 offset_left = -524.0
-offset_top = 433.0
+offset_top = 570.0
 offset_right = 526.0
-offset_bottom = 817.0
+offset_bottom = 954.0
 texture_normal = ExtResource("3_ntye7")
 texture_hover = ExtResource("4_cghgw")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Sprite2D" type="Sprite2D" parent="main"]
+position = Vector2(6.10352e-05, -566)
+scale = Vector2(1.44083, 1.44083)
+texture = ExtResource("6_ntye7")
+
+[node name="close" type="TextureButton" parent="main"]
+layout_mode = 0
+offset_left = -1977.0
+offset_top = -1094.0
+offset_right = -1779.0
+offset_bottom = -896.0
+texture_normal = ExtResource("7_288ov")
+texture_hover = ExtResource("8_tub5d")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="credits" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_left = 2931.0
+offset_top = -902.0
+offset_right = 3676.0
+offset_bottom = -242.0
+scale = Vector2(3.085, 3.085)
+bbcode_enabled = true
+text = "[font_size=30]A game by Yannis.[/font_size]
+
+[font_size=30]Graphics, Sound Design, Game Design, etc... :[/font_size]
+ - Yannis
+
+[font_size=30]Assets[/font_size]
+  [b]Musics :[/b]
+    - November - Chill Fall Autumn Lofi Hip-Hop by FASSounds
+    - Fireplace by FASSounds
+    - Hot Coffee - Lofi Vlog Chill Hop by FASSounds
+    - No Copyright Music Lofi by DELOSound
+    - Chill Lofi Background Music by lNPLUSMUSIC
+    - Lofi Relaxing Chill Music by MFCC
+    - Lofi Hip Hop | Background Lofi Music by SigmaMusicArt
+    - Lofi Background Music by DELOSound
+    - Lofi Chill by DELOSound
+    - Good Night - Lofi Cozy Chill Music by FASSounds (The best)
+
+
+  [b]Sound design :[/b]
+    - Lasonotheque
+    - Leszek_Szary (Freesound)
+    - floraphonic
+    - Lightningbulb
+    - freesound_community"
+
+[node name="back_to_menu" type="TextureButton" parent="credits"]
+layout_mode = 0
+offset_left = 2087.0
+offset_top = 724.0
+offset_right = 2428.0
+offset_bottom = 1001.0
+texture_normal = ExtResource("7_cghgw")
+texture_hover = ExtResource("8_1pxh0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="transitions" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1pxh0")
+}
+
 [connection signal="pressed" from="main/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="main/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="main/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="credits/back_to_menu" to="." method="_on_back_to_menu_pressed"]
