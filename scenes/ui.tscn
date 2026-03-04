@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://du8jfy75h56x"]
+[gd_scene format=3 uid="uid://du8jfy75h56x"]
 
 [ext_resource type="Script" uid="uid://dofl1ovnimqs" path="res://scenes/ui.gd" id="1_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://8t7xd376gyxj" path="res://assets/textures/ui/single_dir_reverse_v.png" id="1_nt7q6"]
@@ -126,7 +126,7 @@ tracks/0/path = NodePath("../reverse_btns:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.533333, 0.966667),
+"times": PackedFloat32Array(0, 0.533333, 1),
 "transitions": PackedFloat32Array(2, 0.6, 1),
 "update": 0,
 "values": [Vector2(-144.615, 0), Vector2(-87.4804, 0), Vector2(16, 0)]
@@ -138,7 +138,7 @@ tracks/1/path = NodePath("../retry:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.533333, 0.966667),
+"times": PackedFloat32Array(0, 0.533333, 1),
 "transitions": PackedFloat32Array(2, 0.6, 1),
 "update": 0,
 "values": [Vector2(1170.69, 501.75), Vector2(1111.39, 501.75), Vector2(1004, 501.75)]
@@ -168,7 +168,7 @@ _data = {
 &"transition": SubResource("Animation_wm3ai")
 }
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" unique_id=1189673301]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,16 +177,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gdt2y")
 
-[node name="retry" type="TextureButton" parent="."]
+[node name="retry" type="TextureButton" parent="." unique_id=1415657241]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 18.6899
+offset_left = -148.0
 offset_top = -146.25
-offset_right = 146.69
+offset_right = -20.000244
 offset_bottom = -18.25
 grow_horizontal = 0
 grow_vertical = 0
@@ -195,21 +195,21 @@ texture_disabled = ExtResource("3_cgfq5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="reverse_btns" type="VBoxContainer" parent="."]
+[node name="reverse_btns" type="VBoxContainer" parent="." unique_id=214231656]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -144.615
-offset_right = -16.615
+offset_left = 16.0
+offset_right = 144.0
 grow_vertical = 2
 alignment = 1
 
-[node name="rv" type="MarginContainer" parent="reverse_btns"]
+[node name="rv" type="MarginContainer" parent="reverse_btns" unique_id=1148476845]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="reverse_v" type="TextureButton" parent="reverse_btns/rv"]
+[node name="reverse_v" type="TextureButton" parent="reverse_btns/rv" unique_id=1791510241]
 custom_minimum_size = Vector2(128, 141.25)
 layout_mode = 2
 disabled = true
@@ -218,8 +218,8 @@ texture_disabled = ExtResource("5_7dvkv")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="reverse_amount" type="Label" parent="reverse_btns/rv/reverse_v"]
-layout_mode = 2
+[node name="reverse_amount" type="Label" parent="reverse_btns/rv/reverse_v" unique_id=403046087]
+layout_mode = 0
 offset_left = 74.0
 offset_top = 93.0
 offset_right = 129.0
@@ -229,17 +229,15 @@ text = "0"
 label_settings = SubResource("LabelSettings_dfyjw")
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="reverse_btns/rv/reverse_v"]
-libraries = {
-&"": SubResource("AnimationLibrary_cgfq5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="reverse_btns/rv/reverse_v" unique_id=1386608738]
+libraries/ = SubResource("AnimationLibrary_cgfq5")
 
-[node name="rh" type="MarginContainer" parent="reverse_btns"]
+[node name="rh" type="MarginContainer" parent="reverse_btns" unique_id=1761597483]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="reverse_h" type="TextureButton" parent="reverse_btns/rh"]
+[node name="reverse_h" type="TextureButton" parent="reverse_btns/rh" unique_id=866494748]
 custom_minimum_size = Vector2(128, 141.25)
 layout_mode = 2
 disabled = true
@@ -248,8 +246,8 @@ texture_disabled = ExtResource("7_vdcm2")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="reverse_amount" type="Label" parent="reverse_btns/rh/reverse_h"]
-layout_mode = 2
+[node name="reverse_amount" type="Label" parent="reverse_btns/rh/reverse_h" unique_id=1570844242]
+layout_mode = 0
 offset_left = 74.0
 offset_top = 93.0
 offset_right = 129.0
@@ -259,17 +257,15 @@ text = "0"
 label_settings = SubResource("LabelSettings_dfyjw")
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="reverse_btns/rh/reverse_h"]
-libraries = {
-&"": SubResource("AnimationLibrary_cgfq5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="reverse_btns/rh/reverse_h" unique_id=2147060009]
+libraries/ = SubResource("AnimationLibrary_cgfq5")
 
-[node name="rb" type="MarginContainer" parent="reverse_btns"]
+[node name="rb" type="MarginContainer" parent="reverse_btns" unique_id=1270036217]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="reverse_b" type="TextureButton" parent="reverse_btns/rb"]
+[node name="reverse_b" type="TextureButton" parent="reverse_btns/rb" unique_id=834216425]
 custom_minimum_size = Vector2(128, 141.25)
 layout_mode = 2
 disabled = true
@@ -278,8 +274,8 @@ texture_disabled = ExtResource("9_6rmj2")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="reverse_amount" type="Label" parent="reverse_btns/rb/reverse_b"]
-layout_mode = 2
+[node name="reverse_amount" type="Label" parent="reverse_btns/rb/reverse_b" unique_id=49885620]
+layout_mode = 0
 offset_left = 74.0
 offset_top = 93.0
 offset_right = 129.0
@@ -289,27 +285,23 @@ text = "0"
 label_settings = SubResource("LabelSettings_dfyjw")
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="reverse_btns/rb/reverse_b"]
-libraries = {
-&"": SubResource("AnimationLibrary_cgfq5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="reverse_btns/rb/reverse_b" unique_id=384359143]
+libraries/ = SubResource("AnimationLibrary_cgfq5")
 
-[node name="transition" type="ColorRect" parent="."]
+[node name="transition" type="ColorRect" parent="." unique_id=820696919]
 layout_mode = 0
 offset_left = 740.0
 offset_top = -1805.0
-offset_right = 2567.0
+offset_right = 2567.0002
 offset_bottom = -529.0
 rotation = 0.506145
 color = Color(0, 0.203922, 0.254902, 1)
 
-[node name="transition_animation" type="AnimationPlayer" parent="."]
+[node name="transition_animation" type="AnimationPlayer" parent="." unique_id=1002853615]
 root_node = NodePath("../transition")
-libraries = {
-&"": SubResource("AnimationLibrary_p7vwb")
-}
+libraries/ = SubResource("AnimationLibrary_p7vwb")
 
-[node name="transition_sound" type="AudioStreamPlayer" parent="."]
+[node name="transition_sound" type="AudioStreamPlayer" parent="." unique_id=604425828]
 stream = ExtResource("10_7dvkv")
 bus = &"sound_design"
 

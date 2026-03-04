@@ -52,19 +52,26 @@ func _ready() -> void:
 	Autoload.game_end.connect(game_end)
 
 func game_end():
+	if $transition_animation.is_playing():
+		await $transition_animation.animation_finished
 	$transition_animation.play("hide_ui")
 	await $transition_animation.animation_finished
-	visible = false
+	get_parent().visible = false
 
 func _on_retry_pressed() -> void:
 	Autoload.ask_reset.emit()
 
 func reset_with_transition():
+	if $transition_animation.is_playing():
+		await $transition_animation.animation_finished
 	$transition_sound.play()
 	$transition_animation.play("transition")
 	await get_tree().create_timer(0.42).timeout
 	Autoload.reset_level.emit()
 
 func spawn():
+	if $transition_animation.is_playing():
+		await $transition_animation.animation_finished
 	get_parent().visible = true
 	$transition_animation.play("show_ui")
+	await $transition_animation.animation_finished

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://swrf0wutqabg"]
+[gd_scene format=3 uid="uid://swrf0wutqabg"]
 
 [ext_resource type="PackedScene" uid="uid://i3d061tgp1fv" path="res://scenes/levels/level_1.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://lvpn727bbeys" path="res://scenes/main.gd" id="1_tbgi4"]
@@ -45,108 +45,97 @@ gravity = Vector3(0, 0, 0)
 
 [sub_resource type="Resource" id="Resource_yc10j"]
 script = ExtResource("13_muem4")
-frequency = Vector2(1, 1)
-phase = Vector2(1, 1)
-amplitude = Vector2(1, 1)
-offset = Vector2(0, 0)
-BlendingMode = 0
-fade_in = 0.0
-fade_out = 0.0
-start_percent = 0.0
-end_percent = 1.0
-_temp_graph = false
-bake_internal = 64
 metadata/_custom_type_script = "uid://c2088o57le07c"
 
 [sub_resource type="Resource" id="Resource_pm3ni"]
 script = ExtResource("16_gqmmt")
 PositionShake = Array[ExtResource("12_jbj1t")]([SubResource("Resource_yc10j")])
-RotationShake = Array[ExtResource("14_dp3eg")]([])
-ScaleShake = Array[ExtResource("12_jbj1t")]([])
 bake_internal = 96
 __follow_timeline = true
 metadata/_custom_type_script = "uid://5qk6srlohoxq"
 
-[node name="main" type="Node2D" node_paths=PackedStringArray("levels")]
+[node name="main" type="Node2D" unique_id=468561031 node_paths=PackedStringArray("levels")]
 script = ExtResource("1_tbgi4")
 levels = [NodePath("level"), NodePath("level2"), NodePath("level3"), NodePath("level4"), NodePath("level5"), NodePath("level6"), NodePath("level7")]
+start_level = 6
 
-[node name="bg_particles" type="GPUParticles2D" parent="."]
+[node name="bg_particles" type="GPUParticles2D" parent="." unique_id=817483718]
 amount = 100
 texture = ExtResource("2_tipki")
-lifetime = 20.0
+lifetime = 42.0
+preprocess = 42.0
 process_material = SubResource("ParticleProcessMaterial_85g3d")
 
-[node name="pre_emitter" type="GPUParticles2D" parent="."]
+[node name="pre_emitter" type="GPUParticles2D" parent="." unique_id=901192985]
 emitting = false
 amount = 100
 texture = ExtResource("2_tipki")
-lifetime = 20.0
+lifetime = 42.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_tipki")
 
-[node name="level" parent="." instance=ExtResource("1_jyhfs")]
+[node name="level" parent="." unique_id=1417694303 instance=ExtResource("1_jyhfs")]
 position = Vector2(16, -40)
 
-[node name="level2" parent="." instance=ExtResource("2_tbgi4")]
+[node name="level2" parent="." unique_id=1206918639 instance=ExtResource("2_tbgi4")]
 position = Vector2(4320, -2784)
 
-[node name="level3" parent="." instance=ExtResource("15_gqmmt")]
+[node name="level3" parent="." unique_id=1033283848 instance=ExtResource("15_gqmmt")]
 position = Vector2(1784, -7072)
 
-[node name="level4" parent="." instance=ExtResource("4_tefeu")]
+[node name="level4" parent="." unique_id=704336345 instance=ExtResource("4_tefeu")]
 position = Vector2(-3072, -7136)
 
-[node name="level5" parent="." instance=ExtResource("17_yc10j")]
+[node name="level5" parent="." unique_id=1588587755 instance=ExtResource("17_yc10j")]
 position = Vector2(-6592, -3672)
 
-[node name="level6" parent="." instance=ExtResource("9_gqmmt")]
+[node name="level6" parent="." unique_id=1153926943 instance=ExtResource("9_gqmmt")]
 position = Vector2(-7632, 824)
 
-[node name="level7" parent="." instance=ExtResource("9_jscy8")]
+[node name="level7" parent="." unique_id=763234112 instance=ExtResource("9_jscy8")]
 position = Vector2(-6408, 4816)
 
-[node name="level8" parent="." instance=ExtResource("17_muem4")]
+[node name="level8" parent="." unique_id=491082495 instance=ExtResource("17_muem4")]
 position = Vector2(-2880, 8448)
 
-[node name="player" parent="." instance=ExtResource("5_85g3d")]
+[node name="player" parent="." unique_id=1568748564 instance=ExtResource("5_85g3d")]
 unique_name_in_owner = true
 position = Vector2(-1985, 4461)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1401350368]
 
-[node name="UI" parent="UI" instance=ExtResource("1_tefeu")]
+[node name="UI" parent="UI" unique_id=422663651 instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
 mouse_filter = 1
 
-[node name="menu" parent="." instance=ExtResource("10_muem4")]
+[node name="menu" parent="." unique_id=1898056367 instance=ExtResource("10_muem4")]
 offset_left = 3265.0
 offset_top = 4511.0
 offset_right = 3265.0
 offset_bottom = 4511.0
 pivot_offset = Vector2(576, 324)
 
-[node name="game_end" parent="." instance=ExtResource("14_yc10j")]
+[node name="game_end" parent="." unique_id=11143279 instance=ExtResource("14_yc10j")]
 offset_left = 5318.0
 offset_top = 7945.0
 offset_right = 7579.0
 offset_bottom = 9060.0
 
-[node name="music_player" type="AudioStreamPlayer" parent="."]
+[node name="music_player" type="AudioStreamPlayer" parent="." unique_id=1883416618]
 bus = &"music"
 script = ExtResource("9_85g3d")
 
-[node name="level_flip" type="AudioStreamPlayer" parent="."]
+[node name="level_flip" type="AudioStreamPlayer" parent="." unique_id=1468169032]
 stream = ExtResource("10_choun")
 bus = &"sound_design"
 
-[node name="camera" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="." unique_id=619264721]
 position = Vector2(84.4293, 98.9284)
 rotation = 16.8864
 zoom = Vector2(0.28, 0.28)
 
-[node name="cam_shaker" type="Node2D" parent="." node_paths=PackedStringArray("Targets")]
+[node name="cam_shaker" type="Node2D" parent="." unique_id=1690153765 node_paths=PackedStringArray("Targets")]
 script = ExtResource("11_ya4ey")
 custom_target = true
 Targets = [NodePath("../camera")]

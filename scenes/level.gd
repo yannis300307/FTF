@@ -14,6 +14,7 @@ func reset_items():
 
 func reset(): # called by main
 	reset_items()
+	$level_end.finished = false;
 	x_reversed = false
 	y_reversed = false
 	await flip_center(false, false)

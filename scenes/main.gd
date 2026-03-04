@@ -29,6 +29,9 @@ func next_level(instant: bool = false, restart: bool = false):
 		current_level += 1
 	if restart:
 		current_level = -1
+		%player.in_transition = true
+		for level in levels:
+			level.get_node("centering").reset()
 		Autoload.current_level = null
 		$UI.visible = false
 		$bg_particles.global_position = $menu.global_position
@@ -49,10 +52,13 @@ func next_level(instant: bool = false, restart: bool = false):
 		#$camera.global_position = levels[current_level].global_position
 		Autoload.update_level_transition.emit(true)
 		Autoload.current_level = levels[current_level]
-		$pre_emitter.global_position = levels[current_level].global_position
-		$pre_emitter.restart()
-		$pre_emitter.emitting = true
+		#$pre_emitter.global_position = levels[current_level].global_position
+		#$pre_emitter.restart()
+		#$pre_emitter.emitting = true
 		
+		$bg_particles.global_position = levels[current_level].global_position
+		$bg_particles.restart(true)
+
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_QUART)
 		tween.tween_property($camera, "global_position", levels[current_level].global_position, 0.0 if instant else 1.0).set_ease(Tween.EASE_IN_OUT)
 		await tween.finished
@@ -60,11 +66,9 @@ func next_level(instant: bool = false, restart: bool = false):
 		Autoload.reset_level.emit()
 		Autoload.update_level_transition.emit(false)
 		
-		$bg_particles.global_position = levels[current_level].global_position
-		
 		await get_tree().create_timer(20).timeout
 		
-		$pre_emitter.emitting = false
+		#$pre_emitter.emitting = false
 
 func reset():
 	await Autoload.current_level.get_node("centering").reset()

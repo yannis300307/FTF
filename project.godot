@@ -8,21 +8,24 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Gam Jam avril"
 run/main_scene="uid://swrf0wutqabg"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Autoload="*res://autoload.gd"
-Shaker="*res://addons/shaker/src/Shaker.gd"
+Shaker="*uid://cxkw2hpbomqp"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -34,4 +37,4 @@ enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.841711, 0.697107, 0.527487, 1)
+environment/defaults/default_clear_color=Color(0.8265288, 0.7057868, 0.53231543, 1)
