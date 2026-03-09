@@ -57,7 +57,6 @@ metadata/_custom_type_script = "uid://5qk6srlohoxq"
 [node name="main" type="Node2D" unique_id=468561031 node_paths=PackedStringArray("levels")]
 script = ExtResource("1_tbgi4")
 levels = [NodePath("level"), NodePath("level2"), NodePath("level3"), NodePath("level4"), NodePath("level5"), NodePath("level6"), NodePath("level7")]
-start_level = 6
 
 [node name="bg_particles" type="GPUParticles2D" parent="." unique_id=817483718]
 amount = 100
